@@ -42,6 +42,9 @@ class Game {
                 if ($pieceSource->canMove($this->board,$move->getTo())) {
                     $this->board->movePiece($move->getFrom(),$move->getTo());
                     $this->switchPlayer();
+                    if($this->isCheck($this->currentPlayer)) {
+                        echo "Le roi est en échec";
+                    }
                 }
                 else {
                      throw new InvalidMoveException($move->getFrom(),$move->getTo());
@@ -57,6 +60,22 @@ class Game {
         }
     }
     public function isCheck(PieceColor $color): bool {
+        $kingPosition = $this->board->getKingPosition($color);
+        
+        if($kingPosition === null) {
+            return false;
+        }
+        
+        $oppositeColor = $color === PieceColor::WHITE ? PieceColor::BLACK : PieceColor::WHITE;
+        
+        foreach($this->board->getPieces() as $piece) {
+            if($piece !== null && $piece->getColor() === $oppositeColor) {
+                if($piece->canMove($this->board, $kingPosition)) {
+                    return true;
+                }
+            }
+        }
+        
         return false;
     }
     private function setupPieces(): void {
@@ -79,7 +98,6 @@ class Game {
                     $this->board->placePiece($pieceTemp);
                 }
                 if($j===7 && $actualColor === PieceColor::WHITE) {
-                    echo "WHITE at row $actualRow\n";
                     if($didPawnPlaced){
                         $actualColor = PieceColor::BLACK;
                         $actualRow= 0;

@@ -2,6 +2,7 @@
 namespace ChessGame;
 use ChessGame\Contract\Renderable;
 use ChessGame\Enum\PieceColor;
+use ChessGame\Enum\PieceType;
 use ChessGame\Piece\Piece;
 use ChessGame\Position;
 use ChessGame\Exception\NoPieceException;
@@ -124,6 +125,11 @@ class Board implements Renderable {
         return $this->pieces;
     }
     public function getKingPosition(PieceColor $color): ?Position {
+        foreach($this->pieces as $key => $piece) {
+            if($piece !== null && $piece->getType() === PieceType::KING && $piece->getColor() === $color) {
+                return Position::fromKey($key);
+            }
+        }
         return null;
     }
     public function render(): string {
