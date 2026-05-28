@@ -32,14 +32,10 @@ abstract class Piece implements Renderable {
     public function canMove(Board $board, Position $target): bool {
         
         if($this->position == $target) {
-            echo "a";
             return false;
         }
         
         if(!$this->isValidMovementShape($target)) {
-            echo $board->getPieceAt($target)->render();
-            echo $this->render();
-            echo "f";
             return false;
         }
 
@@ -49,12 +45,10 @@ abstract class Piece implements Renderable {
         }
         
         if($board->hasPieceAt($target) && !$this->canCapture($board,$target)) {
-            echo "t";
             return false;
         }
 
         if(!$board->isPathClear($this->getPosition(),$target) && $this->getType() != PieceType::KNIGHT) {
-            echo "r";
             return false;
         }
 
