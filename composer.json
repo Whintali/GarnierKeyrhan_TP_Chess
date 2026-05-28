@@ -1,0 +1,8 @@
+{
+  "name": "garnier-keyrhan/chess-game",
+  "autoload": {
+    "psr-4": {
+      "ChessGame\\": "src/"
+    }
+  }
+}
