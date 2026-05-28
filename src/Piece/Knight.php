@@ -27,7 +27,6 @@ class Knight extends Piece {
         $knightDifferenceColumn = $target->getColumn() - $this->position->getColumn();
         $knightDifferenceRow = $target->getRow() - $this->position->getRow();
         
-        // Knight : (2,1) ou (1,2) ou (-2,1) ou (-1,2) etc
         if(($knightDifferenceColumn === 2 && $knightDifferenceRow === 1) || ($knightDifferenceColumn === 2 && $knightDifferenceRow === -1) ||
         ($knightDifferenceColumn === -2 && $knightDifferenceRow === 1) || ($knightDifferenceColumn === -2 && $knightDifferenceRow === -1) ||
         ($knightDifferenceColumn === 1 && $knightDifferenceRow === 2) || ($knightDifferenceColumn === 1 && $knightDifferenceRow === -2) ||

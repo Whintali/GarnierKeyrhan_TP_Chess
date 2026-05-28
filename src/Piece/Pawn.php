@@ -32,7 +32,6 @@ class Pawn extends Piece {
             }
             else if($this->getColor() === PieceColor::WHITE) {
                 if(($target->getRow() === ($this->getPosition()->getRow()-2) && $this->getPosition()->getRow() === 6)  || $target->getRow() === $this->position->getRow()-1) {
-                    echo "ou là";
                     return true;
                 }
             }

@@ -55,7 +55,6 @@ class Board implements Renderable {
     public function isPathClear(Position $from, Position $to): bool {
         $positionColumn = 0;
         $positionRow = 0;
-        // TODO à tester
         if($from->getColumn() != $to->getColumn() && $from->getRow() != $to->getRow()) {
             // cas où trajet diagonale
             for($i=1; $i <= 7;$i++) {
