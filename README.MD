@@ -44,7 +44,7 @@ principales
         ✅ movePiece()
         ✅ isPathClear()
         ✅ getPieces()
-        ✅ / ❌ getKingPosition()
+        ✅ getKingPosition()
         ✅ render()
 
     ✅ Game
@@ -53,7 +53,7 @@ principales
         ✅ getBoard()
         ✅ getCurrentPlayer()
         ✅ play()
-        ✅ / ❌ isCheck()
+        ✅ isCheck()
         ✅ setupPieces()
         ✅ switchPlayer()
 
